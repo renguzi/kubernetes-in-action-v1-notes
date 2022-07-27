@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kubia-two-containers
+spec:
+  containers:
+  - image: renguzi/kubia8081
+    name: kubia1
+    ports:
+    - containerPort: 8081
+      protocol: TCP
+  - image: renguzi/kubia8082
+    name: kubia2
+    ports:
+    - containerPort: 8082
+      protocol: TCP
