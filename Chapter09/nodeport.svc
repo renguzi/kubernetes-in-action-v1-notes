@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubia-nodeport
+spec:
+  type: NodePort
+  ports:
+  - port: 80                              #Service访问端口，80
+    targetPort: 8080                      #底层Pod端口：8080
+    nodePort: 30123                       #NodePort端口，即任意节点都通过该端口来访问服务，该参数可以不在这里指定，由Kubernetes帮我们选定一个端口          
+  selector:
+    app: kubia
